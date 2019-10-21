@@ -59,10 +59,10 @@ void Application::HandleUpdate()
 
 	if(m_cameraState == CAMERA_MAP)
 	{
-		if(this->IsKeyPressed('Q'))
+		if(this->IsKeyPressed('A'))
 			m_cameraZ -= 2.0f;
 
-		if(this->IsKeyPressed('A'))
+		if(this->IsKeyPressed('Q'))
 			m_cameraZ += 2.0f;
 	}
 

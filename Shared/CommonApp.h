@@ -63,7 +63,7 @@ struct Vertex_Pos3fColour4ub
 };
 
 extern const D3D11_INPUT_ELEMENT_DESC g_aVertexDesc_Pos3fColour4ub[];
-extern const unsigned g_vertexDescSize_Pos3fColour4ub;
+extern const UINT g_vertexDescSize_Pos3fColour4ub;
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -101,7 +101,7 @@ struct Vertex_Pos3fColour4ubTex2f
 };
 
 extern const D3D11_INPUT_ELEMENT_DESC g_aVertexDesc_Pos3fColour4ubTex2f[];
-extern const unsigned g_vertexDescSize_Pos3fColour4ubTex2f;
+extern const UINT g_vertexDescSize_Pos3fColour4ubTex2f;
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -120,7 +120,7 @@ struct Vertex_Pos3fColour4ubNormal3fTex2f
 };
 
 extern const D3D11_INPUT_ELEMENT_DESC g_aVertexDesc_Pos3fColour4ubNormal3fTex2f[];
-extern const unsigned g_vertexDescSize_Pos3fColour4ubNormal3fTex2f;
+extern const UINT g_vertexDescSize_Pos3fColour4ubNormal3fTex2f;
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

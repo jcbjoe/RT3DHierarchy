@@ -74,7 +74,7 @@ void Aeroplane::UpdateMatrices(void)
 	mRotZ = XMMatrixRotationZ(XMConvertToRadians(m_v4Rot.z));
 	mTrans = XMMatrixTranslationFromVector(XMLoadFloat4(&m_v4Pos));
 	
-	m_mWorldMatrix = mRotX * mRotZ * mRotY * mTrans;
+	m_mWorldMatrix =   mRotZ * mRotX * mRotY * mTrans;
 
 	// [Skip this step first time through] Also calculate mPlaneCameraRot which ignores rotations in Z and X for the camera to parent to
 	mPlaneCameraRot = XMMatrixMultiply(mRotY, mTrans);
@@ -143,9 +143,9 @@ void Aeroplane::Update(bool bPlayerControl)
 		// Step 1: Make the plane pitch upwards when you press "Q" and return to level when released
 		// Maximum pitch = 60 degrees
 		if (Application::s_pApp->IsKeyPressed('Q')) {
-			if (planeRotations.x + 1 < 60) {
-				m_v4Rot.x += 1;
-				planeRotations.x += 1;
+			if (planeRotations.x + 2 < 60) {
+				m_v4Rot.x += 2;
+				planeRotations.x += 2;
 			}
 		}
 		
@@ -153,21 +153,21 @@ void Aeroplane::Update(bool bPlayerControl)
 		// You can also impose a take off speed of 0.5 if you like
 		// Minimum pitch = -60 degrees
 		if (Application::s_pApp->IsKeyPressed('A')) {
-			if (planeRotations.x - 1 > -60) {
-				m_v4Rot.x -= 1;
-				planeRotations.x -= 1;
+			if (planeRotations.x - 2 > -60) {
+				m_v4Rot.x -= 2;
+				planeRotations.x -= 2;
 			}
 			
 		}
 		if (!Application::s_pApp->IsKeyPressed('Q') && !Application::s_pApp->IsKeyPressed('A')) {
 			if (planeRotations.x != 0) {
 				if (planeRotations.x > 0) {
-					planeRotations.x -= 1;
-					m_v4Rot.x -= 1;
+					planeRotations.x -= 2;
+					m_v4Rot.x -= 2;
 				}
 				else {
-					planeRotations.x += 1;
-					m_v4Rot.x += 1;
+					planeRotations.x += 2;
+					m_v4Rot.x += 2;
 				}
 			}
 		}
