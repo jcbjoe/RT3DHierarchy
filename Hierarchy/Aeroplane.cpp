@@ -85,31 +85,31 @@ void Aeroplane::UpdateMatrices(void)
 	// Calculate m_mPropWorldMatrix for propeller based on Euler rotation angles and position data.
 	// Parent the propeller to the plane
 
-	m_mPropWorldMatrix = XMMatrixRotationX(XMConvertToRadians(m_v4PropRot.x)) *
-						 XMMatrixRotationZ(XMConvertToRadians(m_v4PropRot.z)) *
+	m_mPropWorldMatrix = XMMatrixRotationZ(XMConvertToRadians(m_v4PropRot.z))*
+						 XMMatrixRotationX(XMConvertToRadians(m_v4PropRot.x)) *
 						 XMMatrixRotationY(XMConvertToRadians(m_v4PropRot.y)) *
 						 XMMatrixTranslationFromVector(XMLoadFloat4(&m_v4PropOff)) *
 						 m_mWorldMatrix;
 
 	// Calculate m_mTurretWorldMatrix for propeller based on Euler rotation angles and position data.
 	// Parent the turret to the plane
-	m_mTurretWorldMatrix = XMMatrixRotationX(XMConvertToRadians(m_v4TurretRot.x)) *
-							XMMatrixRotationZ(XMConvertToRadians(m_v4TurretRot.z)) *
-							XMMatrixRotationY(XMConvertToRadians(m_v4TurretRot.y)) *
-							XMMatrixTranslationFromVector(XMLoadFloat4(&m_v4TurretOff)) *
-							m_mWorldMatrix;
+	m_mTurretWorldMatrix = XMMatrixRotationZ(XMConvertToRadians(m_v4TurretRot.z)) *
+						   XMMatrixRotationX(XMConvertToRadians(m_v4TurretRot.x)) *
+						   XMMatrixRotationY(XMConvertToRadians(m_v4TurretRot.y)) *
+						   XMMatrixTranslationFromVector(XMLoadFloat4(&m_v4TurretOff)) *
+						   m_mWorldMatrix;
 
 	// Calculate m_mGunWorldMatrix for gun based on Euler rotation angles and position data.
 	// Parent the gun to the turret
-	m_mGunWorldMatrix = XMMatrixRotationX(XMConvertToRadians(m_v4GunRot.x)) *
-						XMMatrixRotationZ(XMConvertToRadians(m_v4GunRot.z)) *
+	m_mGunWorldMatrix = XMMatrixRotationZ(XMConvertToRadians(m_v4GunRot.z)) *
+						XMMatrixRotationX(XMConvertToRadians(m_v4GunRot.x)) *
 						XMMatrixRotationY(XMConvertToRadians(m_v4GunRot.y)) *
 						XMMatrixTranslationFromVector(XMLoadFloat4(&m_v4GunOff)) *
 						m_mTurretWorldMatrix;
 
 	// Calculate m_mCameraWorldMatrix for camera based on Euler rotation angles and position data.
-	m_mCamWorldMatrix = XMMatrixRotationX(XMConvertToRadians(m_v4CamRot.x)) *
-						XMMatrixRotationZ(XMConvertToRadians(m_v4CamRot.z)) *
+	m_mCamWorldMatrix = XMMatrixRotationZ(XMConvertToRadians(m_v4CamRot.z)) *
+						XMMatrixRotationX(XMConvertToRadians(m_v4CamRot.x)) *
 						XMMatrixRotationY(XMConvertToRadians(m_v4CamRot.y)) *
 						XMMatrixTranslationFromVector(XMLoadFloat4(&m_v4CamOff));
 
